@@ -15,7 +15,7 @@ app.use(cors());
 const PORT = process.env.PORT || 5000;
 
 // home route
-app.use('/', (req, res) => {
+app.get('/', (req, res) => {
     res.send('Hello World')
 });
 
@@ -23,5 +23,5 @@ app.use('/', (req, res) => {
 app.use('/', require('./routes/index'))
 
 app.listen(PORT, ()=> {
-    console.log(`node js chat app server is listening on port ${PORT}`)
+    console.log(`node js chat app server is listening on port http://localhost:${PORT}`)
 });
