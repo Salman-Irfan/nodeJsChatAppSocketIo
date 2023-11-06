@@ -8,9 +8,9 @@ const userRegisterController = async (req, res) => {
         name,
         email,
         password,
-        pic
+        
     } = req.body;
-
+    const pic = req.file.filename;
     // Checking the validations results
     const errors = validationResult(req);
 

@@ -33,6 +33,8 @@ const userLoginController = async (req, res) => {
 
         // Extracting password and rest of the user data
         const { password: hashedPassword, ...userWithoutPassword } = user.toObject();
+        // Update the pic value with protocol and host
+        userWithoutPassword.pic = `${req.protocol}://${req.get('host')}/images/${userWithoutPassword.pic}`;
 
         const authtoken = jwt.sign({ email: user.email }, process.env.JWT_SECRET);
         success = true;

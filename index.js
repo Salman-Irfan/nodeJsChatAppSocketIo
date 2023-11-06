@@ -9,6 +9,10 @@ connectToMongodb()
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}))
+// use a static folder
+app.use(express.static('public'))
+
+
 app.use(cors());
 
 
