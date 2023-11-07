@@ -22,7 +22,7 @@ const userRegisterController = async (req, res) => {
     try {
         let user = await User.findOne({ email: email });
         if (user) {
-            return res.status(400).json({
+            return res.json({
                 success: false,
                 error: "User with this email already exists",
             });
