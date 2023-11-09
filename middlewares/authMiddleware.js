@@ -16,7 +16,6 @@ const requireSignIn = async (req, res, next) => {
     try {
         const decoded = jwt.verify(token, tokenSecret)
         req.user = decoded;
-        console.log(decoded); // { email: 'salman7@gmail.com', iat: 1698518113 }
         next()
     } catch (error) {
         console.log(error)

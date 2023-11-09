@@ -1,6 +1,6 @@
 const express = require('express');
 const requireSignIn = require('../../middlewares/authMiddleware');
-const createChatController = require('../../controllers/chatControllers/createChatController');
+const accessChatController = require('../../controllers/chatControllers/accessChatController');
 const getChatController = require('../../controllers/chatControllers/getChatController');
 const createGroupChatController = require('../../controllers/chatControllers/createGroupChatController');
 const renameGroupChatController = require('../../controllers/chatControllers/renameGroupChatController');
@@ -9,7 +9,7 @@ const addToGroupController = require('../../controllers/chatControllers/addToGro
 const router = express.Router();
 
 // create a chat route
-router.post('/create-chat', requireSignIn, createChatController);
+router.post('/create-chat', requireSignIn, accessChatController);
 // get all chat of a user route
 router.get('/get-chat', requireSignIn, getChatController);
 // create group chat route
