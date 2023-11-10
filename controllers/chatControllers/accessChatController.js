@@ -1,7 +1,7 @@
 const express = require('express')
 const { validationResult } = require("express-validator");
 const User = require('../../models/userModel');
-const Chat = require('../../models/chatModel')
+const Chat = require('../../models/chatModel');
 
 const accessChatController = async (req, res) => {
     const errors = validationResult(req);
