@@ -9,7 +9,7 @@ const addToGroupController = require('../../controllers/chatControllers/addToGro
 const router = express.Router();
 
 // create a chat route
-router.post('/create-chat', requireSignIn, accessChatController);
+router.post('/access-chat', requireSignIn, accessChatController);
 // get all chat of a user route
 router.get('/get-chat', requireSignIn, getChatController);
 // create group chat route
