@@ -10,18 +10,21 @@ const router = express.Router();
 
 // create a chat route
 router.post('/access-chat', requireSignIn, accessChatController);
+
 // get all chat of a user route
 router.get('/get-chat', requireSignIn, getChatController);
+
 // create group chat route
 router.post('/create-group', requireSignIn, createGroupChatController);
+
 // rename group chat route
 router.put('/rename-group', requireSignIn, renameGroupChatController);
-// remove from group  route
-router.put('/rmove-from-group', requireSignIn, removeFromGroupController);
+
 // add to group  route
 router.put('/add-to-group', requireSignIn, addToGroupController);
 
-
+// remove from group  route
+router.put('/remove-from-group', requireSignIn, removeFromGroupController);
 
 
 module.exports = router;
