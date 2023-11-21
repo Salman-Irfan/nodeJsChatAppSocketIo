@@ -17,7 +17,19 @@ const getAllUsersController = async (req, res) => {
         ]
     } : {}
     // query the database
-    const users = await User.find(keyword)
-    res.send(users)
+    try {
+        const users = await User.find(keyword);
+
+        // Update the pic value with the base URL
+        const usersWithUpdatedPic = users.map(user => ({
+            ...user.toObject(),
+            pic: `${req.protocol}://${req.get('host')}/images/${user.pic}`
+        }));
+
+        res.send(usersWithUpdatedPic);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
 }
 module.exports = getAllUsersController 
